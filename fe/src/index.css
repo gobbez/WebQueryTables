@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode styles (default) */
+:root {
+    --background-color: #1e1e2e;
+    --text-color: #e5e5e5;
+    --accent-color: #4f46e5;
+}
+
+/* Light mode styles */
+.light {
+    --font-family: 'Poppins', sans-serif;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --accent-color: #2563eb;
+}
+
+html {
+    height: 100%;
+    background-color: var(--background-color); 
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    @apply transition-colors duration-300 ease-in-out;
+    min-height: 100%;
+    @apply text-base sm:text-lg md:text-xl; /* Responsive font sizes */
+}
+
+.textcursivefordark {
+    font-family: "Lucida Handwriting";
+    font-style: italic;
+    font-size: medium;
+    color:#ffffff;
+    text-align: center;
+}
+.textfordark {
+    font-size: large;
+    color:#ffffff;
+    text-align: center;
+}
+
+.textforlight {
+    font-size: large;
+    color: blueviolet;
+    text-align: center;
+}
+.textcursiveforlight {
+    font-family: "Lucida Handwriting";
+    font-style: italic;
+    font-size: medium;
+    color:blueviolet;
+    text-align: center;
+}
+
+.textright {
+    text-align: right;
+    display: block;
+}
+
+.blinking_text {
+    animation: blinking 1.5s infinite;
+}
+@keyframes blinking {
+    0% {
+        opacity: 0.1
+    }
+    100% {
+        translate: 10px;
+        opacity: 1
+    }
+}
+.blinking_text_left {
+    animation: blinkingleft 1.5s infinite;
+}
+@keyframes blinkingleft {
+    0% {
+        opacity: 0.1
+    }
+    100% {
+        translate: -10px;
+        opacity: 1
+    }
+}
+
+
+.fast_changecolor_text1 {
+    animation: changeColor 2s infinite alternate;
+  }
+@keyframes changeColor {
+    50% {
+        color: #d0ab8e
+    }
+    100% {
+        color: #000000
+    }
+}
+.fast_changecolor_forblack {
+    animation: changeColor 2s infinite alternate;
+  }
+@keyframes changeColor {
+    50% {
+        color: #d0ab8e
+    }
+    100% {
+        color: #ffffff
+    }
+}
+.fast_changecolor_forlight {
+    animation: changeColor 2s infinite alternate;
+  }
+@keyframes changeColor {
+    50% {
+        color: #d0ab8e
+    }
+    100% {
+        color: orange
+    }
+}
+
+.textteal {
+    color: teal;
+    font-size: medium;
+}
+.textteal2 {
+    color: teal;
+    font-size: large;
+    text-align: center;
+}
+
+.titledrawer {
+    color: teal;
+    font-size: xx-large;
+    font-family: "Brush Script MT";
+}
+
+/* Responsive text alignment */
+@media (max-width: 640px) {
+    .textright, .textfordark, .textforlight, .textcursivefordark {
+        text-align: center; /* Center-align text on phones */
+    }
+    .button {
+        @apply px-4 py-2; /* Smaller padding for phones */
+    }
+}
+
+/* Utility classes */
+.container {
+    @apply max-w-3xl mx-auto px-4 py-8; /* Default padding */
+    @apply sm:px-6 sm:py-10; /* Larger padding for tablets */
+    @apply md:px-8 md:py-12; /* Even larger padding for desktops */
+}
+
+.button {
+    @apply px-6 py-2 rounded-lg font-semibold text-white transition-all;
+    background-color: var(--accent-color);
+}
+
+.button:hover {
+    @apply opacity-80;
+}
+
+/* Responsive typography */
+h1 {
+    @apply text-3xl font-bold; /* Default size for phones */
+    @apply sm:text-4xl; /* Larger for tablets */
+    @apply md:text-5xl; /* Even larger for desktops */
+}
+
+p {
+    @apply text-base; /* Default size for phones */
+    @apply sm:text-lg; /* Larger for tablets */
+    @apply md:text-xl; /* Even larger for desktops */
+}
