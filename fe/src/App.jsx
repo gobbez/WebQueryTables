@@ -11,6 +11,7 @@ import { AuthProvider } from './components/context/AuthContext';
 import LoginPassword from './components/componentsApi/LoginPassword'
 import AllDatabases from './components/componentsApi/AllDatabases'
 import MenuComponent from "./components/MenuComponent"
+import CreateTable from "./components/componentsApi/CreateTable"
 
 
 function App() {
@@ -56,8 +57,8 @@ function App() {
           <MenuComponent onMenuClick={handleMenuClick} />
 
           {/* Componente corrente */}
+          {currentComponent === "CreateTable" && <CreateTable />}
           {currentComponent === "Read" && <AllDatabases />}
-          {currentComponent === "Create" && <CreateDatabase />}
           {currentComponent === "Update" && <UpdateDatabase />}
           {currentComponent === "Delete" && <DeleteDatabase />}
         </Box>

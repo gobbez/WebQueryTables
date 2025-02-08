@@ -4,6 +4,7 @@ from pathlib import Path
 
 import load_db
 import loginpassword
+import createtable
 
 # Path
 THIS_FOLDER = Path(__file__).parent.resolve()
@@ -14,7 +15,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return jsonify(load_db.show_dbs())
+    return jsonify(load_db.show_tables())
 
 @app.route('/login_password', methods=['GET', 'POST'])
 def login_password():
@@ -26,6 +27,12 @@ def login_password():
     is_valid = loginpassword.loginpassword(user_password)
 
     return jsonify(is_valid)
+
+@app.route('/create_table', methods=['GET', 'POST'])
+def create_table():
+    data = request.get_json()
+    result = createtable.create_table(data)
+    return jsonify(result)
 
 
 if __name__ == '__main__':

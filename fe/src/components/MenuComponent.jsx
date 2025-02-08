@@ -23,15 +23,18 @@ function MenuComponent({ onMenuClick }) {
                 <Accordion.Root collapsible>
                     <Accordion.Item key="crudOptions" value="crudOptions">
                         <Accordion.ItemTrigger>
-                            <Button {...buttonProps}>CRUD Database</Button>
+                            CRUD Database
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
                             <Accordion.ItemBody>
                                 {isLogged ? (
                                     <Flex direction="column" gap={2}>
-                                        <Button {...buttonProps} onClick={() => onMenuClick("Create")}>
-                                          Create
+                                        <Button {...buttonProps} onClick={() => onMenuClick("CreateTable")}>
+                                          Create Table
+                                        </Button>
+                                        <Button {...buttonProps} onClick={() => onMenuClick("CreateRow")}>
+                                          Create Row
                                         </Button>
                                         <Button {...buttonProps} onClick={() => onMenuClick("Read")}>
                                           Read
@@ -57,9 +60,9 @@ function MenuComponent({ onMenuClick }) {
             {/* Data Analysis Section */}
             <Flex>
                 <Accordion.Root collapsible>
-                    <Accordion.Item key="dataAnalysis" value="dataAnalysis">
+                    <Accordion.Item key="dataAnalysis" value="EdaOptions">
                         <Accordion.ItemTrigger>
-                            <Button {...buttonProps}>Data Analysis</Button>
+                            Data Analysis
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
