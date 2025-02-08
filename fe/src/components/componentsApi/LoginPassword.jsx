@@ -24,7 +24,7 @@ export default function LoginForm() {
       });
       const result = await response.json();
       setIsLogged(result === true);
-      {isLogged ? (
+      {result === true ? (
         toaster.success({
           title: "Login Successful",
           description: "Welcome! You have full access to the tools and commands!",

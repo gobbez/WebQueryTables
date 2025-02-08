@@ -2,7 +2,7 @@ import { Provider } from "@/components/ui/provider"
 import { useState, useContext, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
 import { Box, Flex } from '@chakra-ui/react'
 import { Toaster, toaster } from "@/components/ui/toaster"
 import { ThemeContext } from "./components/context/ThemeContext"; 
@@ -10,18 +10,27 @@ import ThemeComponent from "./components/ThemeComponent"
 import { AuthProvider } from './components/context/AuthContext';
 import LoginPassword from './components/componentsApi/LoginPassword'
 import AllDatabases from './components/componentsApi/AllDatabases'
+import MenuComponent from "./components/MenuComponent"
 
 
 function App() {
   const { lightMode } = useContext(ThemeContext);
+  // Current component
+  const [currentComponent, setCurrentComponent] = useState(null); 
 
-    useEffect(() => {
-      if (lightMode) {
-          document.documentElement.classList.add("light");
-      } else {
-          document.documentElement.classList.remove("light");
-      }
+  // Theme selection
+  useEffect(() => {
+    if (lightMode) {
+        document.documentElement.classList.add("light");
+    } else {
+        document.documentElement.classList.remove("light");
+    }
   }, [lightMode]);
+
+  // Show component when a Menu is clicked
+  const handleMenuClick = (component) => {
+    setCurrentComponent(component);
+  };
 
   return (
     <Provider>
@@ -43,8 +52,14 @@ function App() {
             <ThemeComponent />
           </Flex>
             
-          <AllDatabases />
-        
+          {/* Menu */}
+          <MenuComponent onMenuClick={handleMenuClick} />
+
+          {/* Componente corrente */}
+          {currentComponent === "Read" && <AllDatabases />}
+          {currentComponent === "Create" && <CreateDatabase />}
+          {currentComponent === "Update" && <UpdateDatabase />}
+          {currentComponent === "Delete" && <DeleteDatabase />}
         </Box>
       </AuthProvider>
     </Provider>
