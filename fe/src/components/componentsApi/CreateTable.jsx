@@ -187,6 +187,7 @@ const CreateTable = () => {
                                         <Table.Cell>
                                             <Input
                                                 type="text"
+                                                color="red"
                                                 placeholder="Column name"
                                                 width="110%"
                                                 value={column.name}
