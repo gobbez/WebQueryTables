@@ -172,7 +172,7 @@ const CreateTable = () => {
                             <Table.Header>
                                 <Table.Row bg="white">
                                     <Table.Cell>
-                                        Column Name    
+                                        <Text className="textblack">Column Name</Text>    
                                     </Table.Cell>
                                     <Table.Cell>
                                         Column Type    
