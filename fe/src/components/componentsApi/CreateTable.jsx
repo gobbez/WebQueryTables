@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, VStack, Flex, Text, Card, Separator, Table } from '@chakra-ui/react';
 import { toaster } from "@/components/ui/toaster";
-import { Switch } from "@/components/ui/switch";
+import { LuInfo } from "react-icons/lu"
+import {
+    DialogActionTrigger,
+    DialogBody,
+    DialogCloseTrigger,
+    DialogContent,
+    DialogFooter,
+    DialogHeader,
+    DialogRoot,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
 
 const CreateTable = () => {
     const [loading, setLoading] = useState(false);
@@ -59,8 +70,84 @@ const CreateTable = () => {
 
     return (
         <VStack spacing={4} align="center">
-            <Card.Root colorPalette="red" width="500px" height="500px" overflowY="auto" padding={4}>
+            <Card.Root colorPalette="red" width="350px" height="500px" overflowY="auto" padding={4}>
+                <Flex>
+                    <Flex width="100%" justify="center">
+                        <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
+                    </Flex>
+                    <DialogRoot>
+                    <DialogTrigger asChild>
+                        <Button variant="outline" size="sm">
+                            <LuInfo />
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                        <DialogTitle>
+                            <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
+                        </DialogTitle>
+                        </DialogHeader>
+                        <DialogBody>
+                            <Text className="textteal">
+                                Here you can create a new table. <br />
+                                TABLE NAME = Write the name of your new table <br />
+                                COLUMN NAME = Write the name of your column(s) <br />
+                                COLUMN TYPE = Select the type of your column(s) <br />
+                                ---- <br />
+                                <Table.Root>
+                                    <Table.Header>
+                                        <Table.Row>
+                                            <Table.Cell>
+                                                TYPE    
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                DESCRIPTION  
+                                            </Table.Cell>  
+                                        </Table.Row>  
+                                    </Table.Header>        
+                                    <Table.Body>
+                                        <Table.Row>
+                                            <Table.Cell>
+                                                ID PRIMARY 
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                Create an ID INT AUTOINCREMENT as PRIMARY KEY 
+                                            </Table.Cell>  
+                                        </Table.Row> 
+                                        <Table.Row>
+                                            <Table.Cell>
+                                                VARCHAR
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                Create a VARCHAR(255)
+                                            </Table.Cell> 
+                                        </Table.Row> 
+                                        <Table.Row>
+                                            <Table.Cell>
+                                                INT
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                Create a INT
+                                            </Table.Cell> 
+                                        </Table.Row> 
+                                        <Table.Row>
+                                            <Table.Cell>
+                                                DATETIME
+                                            </Table.Cell>
+                                            <Table.Cell>
+                                                Create a DATETIME with CURRENT_TIMESTAMP in creation and update
+                                            </Table.Cell> 
+                                        </Table.Row>  
+                                    </Table.Body>                    
+                                </Table.Root>
+                            </Text>
+                        </DialogBody>
+                        <DialogCloseTrigger />
+                    </DialogContent>
+                    </DialogRoot>
+                </Flex>
                 <Card.Header>
+                    
                     <Flex width="100%" justify="center">
                         <Text textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
@@ -99,7 +186,7 @@ const CreateTable = () => {
                                             <Input
                                                 type="text"
                                                 placeholder="Column name"
-                                                width="60%"
+                                                width="110%"
                                                 value={column.name}
                                                 onChange={(e) => handleChange(e, index, 'name')}
                                             />

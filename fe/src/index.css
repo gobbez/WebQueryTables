@@ -101,6 +101,17 @@ body {
         color: #000000
     }
 }
+.fast_changecolor_red {
+    animation: changeColorRed 2s infinite alternate;
+  }
+@keyframes changeColorRed {
+    50% {
+        color: red
+    }
+    100% {
+        color: #000000
+    }
+}
 .fast_changecolor_forblack {
     animation: changeColor 2s infinite alternate;
   }
