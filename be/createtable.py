@@ -8,6 +8,7 @@ def create_table(data):
             tablename = data['tablename']
 
             f.write(f"\n\n{datetime.now()} -- Starting query:")
+            f.write(f"DATA RECEIVED: {data}")
 
             # Start SQL query of create table
             sql = f"CREATE TABLE appapi$default.{tablename} ("
@@ -16,8 +17,10 @@ def create_table(data):
             for row in data['columns']:
                 if row['type'] == 'VARCHAR':
                     sql += f"{row['name']} {row['type']}(255), "
-                elif row['type'] in ['DATETIME', 'INT']:
+                elif row['type'] == 'INT':
                     sql += f"{row['name']} {row['type']}, "
+                elif row['type'] == 'DATETIME':
+                    sql += f"{row['name']} DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, "
                 elif row['type'] == 'IDPRIMARY':
                     if id_prim == False:
                         id_prim = row['name']
