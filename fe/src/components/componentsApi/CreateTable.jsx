@@ -195,6 +195,7 @@ const CreateTable = () => {
                                         </Table.Cell>
                                         <Table.Cell>
                                             <select
+                                                style={{ backgroundColor: "#ffffff", color: "black" }}
                                                 width="35%"
                                                 value={column.type}
                                                 onChange={(e) => handleChange(e, index, 'type')}
