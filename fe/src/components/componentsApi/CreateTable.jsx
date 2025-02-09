@@ -81,7 +81,7 @@ const CreateTable = () => {
                             <LuInfo />
                         </Button>
                     </DialogTrigger>
-                    <DialogContent>
+                    <DialogContent bg="white" color="black">
                         <DialogHeader>
                         <DialogTitle>
                             <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
@@ -94,7 +94,7 @@ const CreateTable = () => {
                                 COLUMN NAME = Write the name of your column(s) <br />
                                 COLUMN TYPE = Select the type of your column(s) <br />
                                 ---- <br />
-                                <Table.Root>
+                                <Table.Root bg="white" color="black">
                                     <Table.Header>
                                         <Table.Row>
                                             <Table.Cell>
@@ -148,7 +148,7 @@ const CreateTable = () => {
                 </Flex>
                 <Card.Header>
                     <Flex width="100%" justify="center">
-                        <Text bgColor="#ffeded" textStyle="2xl" fontWeight="bold">Table Name</Text>
+                        <Text color="black" bg="#ffeded" textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
                 </Card.Header>
                 <Card.Body>
@@ -165,10 +165,10 @@ const CreateTable = () => {
                     </Flex>
                     <Separator marginY={3} />
                     <Flex width="100%" justify="center">
-                        <Text bgColor="#ffeded" textStyle="2xl" fontWeight="bold">Columns</Text>
+                        <Text color="black" bg="#ffeded" textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
-                        <Table.Root bgColor="black">
+                        <Table.Root bg="white" color="black">
                             <Table.Header>
                                 <Table.Row>
                                     <Table.Cell>

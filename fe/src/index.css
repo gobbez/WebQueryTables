@@ -139,6 +139,11 @@ body {
     color: black;
     font-size: medium;
 }
+.textblacklightredbg {
+    color: black;
+    font-size: medium;
+    background-color: "black"
+}
 .textteal {
     color: teal;
     font-size: medium;
