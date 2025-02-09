@@ -157,6 +157,7 @@ const CreateTable = () => {
                     <Flex width="100%" justify="center">
                         <Input
                             type="text"
+                            color="black"
                             bgColor="#ffffff"
                             name="tablename"
                             placeholder="Enter table name"
@@ -187,7 +188,7 @@ const CreateTable = () => {
                                         <Table.Cell>
                                             <Input
                                                 type="text"
-                                                color="red"
+                                                color="black"
                                                 placeholder="Column name"
                                                 width="110%"
                                                 value={column.name}
