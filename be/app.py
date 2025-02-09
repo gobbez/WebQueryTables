@@ -32,7 +32,7 @@ def login_password():
 def create_table():
     data = request.get_json()
     result = createtable.create_table(data)
-    return jsonify(result)
+    return jsonify(result), 200 if result["status"] == "success" else 400
 
 
 if __name__ == '__main__':

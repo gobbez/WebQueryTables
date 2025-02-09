@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Input, VStack, Flex, Text, Card, Separator, Table } from '@chakra-ui/react';
 import { toaster } from "@/components/ui/toaster";
 import { LuInfo } from "react-icons/lu"
@@ -14,8 +14,9 @@ import {
     DialogTrigger,
   } from "@/components/ui/dialog"
 
-const CreateTable = () => {
+const CreateTable = ({ onClose }) => {
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [formData, setFormData] = useState({
         tablename: '',
         columns: [{ name: '', type: 'VARCHAR' }],
@@ -49,7 +50,6 @@ const CreateTable = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-            console.log(response);
             if (!response.ok) throw new Error('Network response was not ok');
             
             toaster.success({
@@ -57,6 +57,7 @@ const CreateTable = () => {
                 description: "New Table created!",
                 duration: 2000,
             });
+            setSuccess(true);
         } catch (error) {
             toaster.error({
                 title: "Error",
@@ -67,6 +68,13 @@ const CreateTable = () => {
             setLoading(false);
         }
     };
+
+    // If creation is success pass the Close prop to the genitor (app.jsx)
+    useEffect(() => {
+        if (success) {
+            onClose(); 
+        }
+    }, [success, onClose]);
 
     return (
         <VStack spacing={4} align="center">

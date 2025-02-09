@@ -57,7 +57,7 @@ function App() {
           <MenuComponent onMenuClick={handleMenuClick} />
 
           {/* Componente corrente */}
-          {currentComponent === "CreateTable" && <CreateTable />}
+          {currentComponent === "CreateTable" && <CreateTable onClose={() => setCurrentComponent(null)} />}
           {currentComponent === "Read" && <AllDatabases />}
           {currentComponent === "Update" && <UpdateDatabase />}
           {currentComponent === "Delete" && <DeleteDatabase />}

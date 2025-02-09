@@ -44,9 +44,9 @@ def create_table(data):
 
             f.write("\nSuccess!")
 
-            return True
+            return {"status": "success", "message": "Table created successfully"}
 
         except Exception as e:
             f.write(f"\nError: {e}")
-            return False
+            return {"status": "error", "message": str(e)}
     f.close()
