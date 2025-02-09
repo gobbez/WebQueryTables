@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Provider } from "@/components/ui/provider"
 import { useState, useContext, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
@@ -35,6 +37,8 @@ function App() {
 
   return (
     <Provider>
+      <Analytics />
+      <SpeedInsights />
       <Toaster />
       <AuthProvider>
         <Box
