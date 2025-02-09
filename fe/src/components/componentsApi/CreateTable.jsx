@@ -148,7 +148,7 @@ const CreateTable = () => {
                 </Flex>
                 <Card.Header>
                     <Flex width="100%" justify="center">
-                        <Text textStyle="2xl" fontWeight="bold">Table Name</Text>
+                        <Text bgColor="#ffeded" textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
                 </Card.Header>
                 <Card.Body>
@@ -165,10 +165,10 @@ const CreateTable = () => {
                     </Flex>
                     <Separator marginY={3} />
                     <Flex width="100%" justify="center">
-                        <Text textStyle="2xl" fontWeight="bold">Columns</Text>
+                        <Text bgColor="#ffeded" textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
-                        <Table.Root>
+                        <Table.Root bgColor="black">
                             <Table.Header>
                                 <Table.Row>
                                     <Table.Cell>
