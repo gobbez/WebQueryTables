@@ -168,9 +168,9 @@ const CreateTable = () => {
                         <Text className="textblack" textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
-                        <Table.Root className="textblack">
+                        <Table.Root>
                             <Table.Header>
-                                <Table.Row>
+                                <Table.Row className="textblack">
                                     <Table.Cell>
                                         Column Name    
                                     </Table.Cell>
@@ -181,7 +181,7 @@ const CreateTable = () => {
                             </Table.Header>
                             <Table.Body>
                                 {formData.columns.map((column, index) => (
-                                    <Table.Row>
+                                    <Table.Row bg="red">
                                         <Table.Cell>
                                             <Input
                                                 type="text"
