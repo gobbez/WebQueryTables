@@ -70,7 +70,7 @@ const CreateTable = () => {
 
     return (
         <VStack spacing={4} align="center">
-            <Card.Root colorPalette="red" width="350px" height="500px" overflowY="auto" padding={4}>
+            <Card.Root bgColor="#ffeded" colorPalette="red" width="350px" height="500px" overflowY="auto" padding={4}>
                 <Flex>
                     <Flex width="100%" justify="center">
                         <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
@@ -88,7 +88,7 @@ const CreateTable = () => {
                         </DialogTitle>
                         </DialogHeader>
                         <DialogBody>
-                            <Text className="textteal">
+                            <Text className="textblack">
                                 Here you can create a new table. <br />
                                 TABLE NAME = Write the name of your new table <br />
                                 COLUMN NAME = Write the name of your column(s) <br />
@@ -147,7 +147,6 @@ const CreateTable = () => {
                     </DialogRoot>
                 </Flex>
                 <Card.Header>
-                    
                     <Flex width="100%" justify="center">
                         <Text textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
@@ -156,6 +155,7 @@ const CreateTable = () => {
                     <Flex width="100%" justify="center">
                         <Input
                             type="text"
+                            bgColor="#ffffff"
                             name="tablename"
                             placeholder="Enter table name"
                             width="300px"
@@ -165,7 +165,7 @@ const CreateTable = () => {
                     </Flex>
                     <Separator marginY={3} />
                     <Flex width="100%" justify="center">
-                        <Text fontWeight="bold">Create Columns</Text>
+                        <Text textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
                         <Table.Root>

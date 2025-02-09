@@ -135,6 +135,10 @@ body {
     }
 }
 
+.textblack {
+    color: black;
+    font-size: medium;
+}
 .textteal {
     color: teal;
     font-size: medium;
