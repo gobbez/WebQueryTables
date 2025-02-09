@@ -148,7 +148,7 @@ const CreateTable = () => {
                 </Flex>
                 <Card.Header>
                     <Flex width="100%" justify="center">
-                        <Text className="textblacklightredbg" textStyle="2xl" fontWeight="bold">Table Name</Text>
+                        <Text className="textblack" textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
                 </Card.Header>
                 <Card.Body>
@@ -168,7 +168,7 @@ const CreateTable = () => {
                         <Text className="textblack" textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
-                        <Table.Root bg="white" color="black">
+                        <Table.Root className="textblack">
                             <Table.Header>
                                 <Table.Row>
                                     <Table.Cell>
