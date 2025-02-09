@@ -96,7 +96,7 @@ const CreateTable = () => {
                                 ---- <br />
                                 <Table.Root bg="white" color="black">
                                     <Table.Header>
-                                        <Table.Row>
+                                        <Table.Row bg="white">
                                             <Table.Cell>
                                                 TYPE    
                                             </Table.Cell>
@@ -106,7 +106,7 @@ const CreateTable = () => {
                                         </Table.Row>  
                                     </Table.Header>        
                                     <Table.Body>
-                                        <Table.Row>
+                                        <Table.Row bg="white">
                                             <Table.Cell>
                                                 ID PRIMARY 
                                             </Table.Cell>
@@ -114,7 +114,7 @@ const CreateTable = () => {
                                                 Create an ID INT AUTOINCREMENT as PRIMARY KEY 
                                             </Table.Cell>  
                                         </Table.Row> 
-                                        <Table.Row>
+                                        <Table.Row bg="white">
                                             <Table.Cell>
                                                 VARCHAR
                                             </Table.Cell>
@@ -122,7 +122,7 @@ const CreateTable = () => {
                                                 Create a VARCHAR(255)
                                             </Table.Cell> 
                                         </Table.Row> 
-                                        <Table.Row>
+                                        <Table.Row bg="white">
                                             <Table.Cell>
                                                 INT
                                             </Table.Cell>
@@ -130,7 +130,7 @@ const CreateTable = () => {
                                                 Create a INT
                                             </Table.Cell> 
                                         </Table.Row> 
-                                        <Table.Row>
+                                        <Table.Row bg="white">
                                             <Table.Cell>
                                                 DATETIME
                                             </Table.Cell>
@@ -170,7 +170,7 @@ const CreateTable = () => {
                     <VStack spacing={2} width="100%">
                         <Table.Root>
                             <Table.Header>
-                                <Table.Row className="textblack">
+                                <Table.Row bg="white">
                                     <Table.Cell>
                                         Column Name    
                                     </Table.Cell>
@@ -181,7 +181,7 @@ const CreateTable = () => {
                             </Table.Header>
                             <Table.Body>
                                 {formData.columns.map((column, index) => (
-                                    <Table.Row bg="red">
+                                    <Table.Row bg="white">
                                         <Table.Cell>
                                             <Input
                                                 type="text"
