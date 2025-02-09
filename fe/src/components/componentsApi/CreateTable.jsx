@@ -98,44 +98,46 @@ const CreateTable = () => {
                                     <Table.Header>
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                TYPE    
+                                                <Text className="textblack">TYPE</Text>  
                                             </Table.Cell>
                                             <Table.Cell>
-                                                DESCRIPTION  
+                                                <Text className="textblack">DESCRIPTION</Text>  
                                             </Table.Cell>  
                                         </Table.Row>  
                                     </Table.Header>        
                                     <Table.Body>
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                ID PRIMARY 
+                                                <Text className="textblack">ID PRIMARY</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                Create an ID INT AUTOINCREMENT as PRIMARY KEY 
+                                                <Text className="textblack">Create an ID INT AUTOINCREMENT as PRIMARY KEY</Text>
                                             </Table.Cell>  
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                VARCHAR
+                                                <Text className="textblack">VARCHAR</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                Create a VARCHAR(255)
+                                                <Text className="textblack">Create a VARCHAR(255)</Text>
                                             </Table.Cell> 
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                INT
+                                                <Text className="textblack">INT</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                Create a INT
+                                                <Text className="textblack">Create a INT</Text>
                                             </Table.Cell> 
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                DATETIME
+                                                <Text className="textblack">DATETIME</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                Create a DATETIME with CURRENT_TIMESTAMP in creation and update
+                                                <Text className="textblack">
+                                                    Create a DATETIME with CURRENT_TIMESTAMP in creation and update
+                                                </Text>
                                             </Table.Cell> 
                                         </Table.Row>  
                                     </Table.Body>                    
@@ -175,7 +177,7 @@ const CreateTable = () => {
                                         <Text className="textblack">Column Name</Text>    
                                     </Table.Cell>
                                     <Table.Cell>
-                                        Column Type    
+                                        <Text className="textblack">Column Type</Text>   
                                     </Table.Cell>                                
                                 </Table.Row>
                             </Table.Header>
