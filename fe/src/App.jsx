@@ -10,7 +10,7 @@ import { Toaster, toaster } from "@/components/ui/toaster"
 import { ThemeContext } from "./components/context/ThemeContext"; 
 import ThemeComponent from "./components/ThemeComponent"
 import { AuthProvider } from './components/context/AuthContext';
-import LoginPassword from './components/componentsApi/LoginPassword'
+import LoginForm from './components/componentsApi/Login'
 import AllDatabases from './components/componentsApi/AllDatabases'
 import MenuComponent from "./components/MenuComponent"
 import CreateTable from "./components/componentsApi/CreateTable"
@@ -53,7 +53,7 @@ function App() {
           >
           {/* Upper Right with Login bar */}
           <Flex justify="flex-end">
-            <LoginPassword />
+            <LoginForm />
             <ThemeComponent />
           </Flex>
             

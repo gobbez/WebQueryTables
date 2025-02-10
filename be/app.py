@@ -3,7 +3,7 @@ from flask_cors import CORS
 from pathlib import Path
 
 import load_db
-import loginpassword
+import login_user
 import createtable
 
 # Path
@@ -17,16 +17,20 @@ CORS(app)
 def home():
     return jsonify(load_db.show_tables())
 
-@app.route('/login_password', methods=['GET', 'POST'])
-def login_password():
+
+@app.route('/login_user', methods=['POST'])
+def loginuser_route():
     data = request.get_json()
-    if not data or "password" not in data:
-        return jsonify({"error": "Password is required"}), 400
 
-    user_password = data["password"]
-    is_valid = loginpassword.loginpassword(user_password)
+    if not data or "username" not in data or "password" not in data:
+        return jsonify({"success": False, "message": "Username and password are required"}), 400
 
-    return jsonify(is_valid)
+    username = data["username"]
+    password = data["password"]
+
+    result = login_user.loginuser(username, password)
+
+    return jsonify(result)
 
 @app.route('/create_table', methods=['GET', 'POST'])
 def create_table():
@@ -34,6 +38,17 @@ def create_table():
     result = createtable.create_table(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
 
+"""
+@app.route('/drop', methods=['GET', 'POST'])
+def delete():
+    res = createtable.delete_table()
+    return res
+
+@app.route('/create_users', methods=['GET', 'POST'])
+def create_usr():
+    res = createtable.create_users()
+    return res
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)

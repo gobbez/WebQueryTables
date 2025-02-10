@@ -50,3 +50,32 @@ def create_table(data):
             f.write(f"\nError: {e}")
             return {"status": "error", "message": str(e)}
     f.close()
+
+"""
+def create_users():
+    with open("log.txt", "a") as f:
+        try:
+            mydb = load_db.connect_db()
+            mycursor = mydb.cursor()
+            mycursor.execute("CREATE TABLE appapi$default.users (id INT AUTO_INCREMENT, username VARCHAR(255), password VARCHAR(255), last_login DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, UNIQUE (username), PRIMARY KEY (id))")
+            mycursor.close()
+            mydb.close()
+            f.write("\nSuccess!")
+        except Exception as e:
+            f.write(f"\nError: {e}")
+    f.close()
+
+
+def delete_table():
+    with open("log.txt", "a") as f:
+        try:
+            mydb = load_db.connect_db()
+            mycursor = mydb.cursor()
+            mycursor.execute("DROP TABLE appapi$default.users")
+            mycursor.close()
+            mydb.close()
+            f.write("\nSuccess!")
+        except Exception as e:
+            f.write(f"\nError: {e}")
+    f.close()
+"""
