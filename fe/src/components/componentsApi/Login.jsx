@@ -21,40 +21,50 @@ export default function LoginForm() {
 
   const handleLogin = async () => {
     setLoading(true);
-    try {
-      const response = await fetch("https://appapi.pythonanywhere.com/login_user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      const result = await response.json();
-      if (result.success) {
-        setIsLogged(true);
-        setUser(username);
-        localStorage.setItem("isLogged", "true");
-        localStorage.setItem("username", username);
+    if (username && password) {
+      try {
+        const response = await fetch("https://appapi.pythonanywhere.com/login_user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+        const result = await response.json();
+        
+        if (result.success) {
+          setIsLogged(true);
+          setUser(username);
+          localStorage.setItem("isLogged", "true");
+          localStorage.setItem("username", username);
 
-        toaster.success({
-          title: "Login Successful",
-          description: "Welcome! You have full access to the tools and commands!",
-          duration: 2000,
-        });
-      } else {
+          toaster.success({
+            title: "Login Successful",
+            description: "Welcome! You have full access to the tools and commands!",
+            duration: 2000,
+          });
+        } else {
+          toaster.error({
+            title: "Login Failed",
+            description: "The credentials are wrong. Please try again",
+            duration: 2000,
+          });
+        }
+      } catch (err) {
         toaster.error({
-          title: "Login Failed",
-          description: "The credentials are wrong. Please try again",
+          title: "Error",
+          description: "An error occurred. Please try again.",
           duration: 2000,
         });
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
+    } else {
       toaster.error({
         title: "Error",
-        description: "An error occurred. Please try again.",
+        description: "Please insert credentials.",
         duration: 2000,
       });
-    } finally {
       setLoading(false);
     }
   };

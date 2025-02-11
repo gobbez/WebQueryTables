@@ -1,5 +1,6 @@
 import load_db
 from datetime import datetime
+import updatetable
 
 def create_table(data):
     with open("log.txt", "a") as f:
@@ -27,6 +28,7 @@ def create_table(data):
                     sql += f"{row['name']} INT AUTO_INCREMENT, "
                 else:
                     raise ValueError()
+
             if id_prim != False:
                 sql += f"PRIMARY KEY ({id_prim})"
             else:
@@ -41,27 +43,15 @@ def create_table(data):
             mycursor.execute(sql)
             mycursor.close()
             mydb.close()
-
             f.write("\nSuccess!")
+
+            insert_new = updatetable.update_table_tables(data)
+            f.write(f"Added username into table tables")
 
             return {"status": "success", "message": "Table created successfully"}
 
         except Exception as e:
             f.write(f"\nError: {e}")
             return {"status": "error", "message": str(e)}
-    f.close()
 
-def select():
-    with open("log.txt", "a") as f:
-        try:
-            mydb = load_db.connect_db()
-            mycursor = mydb.cursor()
-            mycursor.execute(
-                "SELECT * FROM appapi$default.users")
-            result = mycursor.fetchall()
-            mycursor.close()
-            mydb.close()
-            f.write(f"\nSuccess: {result}")
-        except Exception as e:
-            f.write(f"\nError: {e}")
     f.close()

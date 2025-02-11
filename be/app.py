@@ -15,7 +15,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return jsonify(load_db.show_tables())
+    return jsonify(createtable.select())
 
 
 @app.route('/login_user', methods=['POST'])
@@ -38,6 +38,11 @@ def create_table():
     result = createtable.create_table(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
 
+@app.route('/new_table', methods=['GET', 'POST'])
+def new_table():
+    data = request.get_json()
+    result = createtable.create_table(data)
+    return jsonify(result), 200 if result["status"] == "success" else 400
 
 if __name__ == '__main__':
     app.run(debug=True)

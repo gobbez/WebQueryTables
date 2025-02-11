@@ -45,13 +45,17 @@ const CreateTable = ({ onClose }) => {
         e.preventDefault();
         setLoading(true);
         try {
+            const username = localStorage.getItem('username');
+            const payload = { ...formData, username }; 
+
+            // Create new table
             const response = await fetch('https://appapi.pythonanywhere.com/create_table', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(payload)
             });
             if (!response.ok) throw new Error('Network response was not ok');
-            
+
             toaster.success({
                 title: "Success",
                 description: "New Table created!",
