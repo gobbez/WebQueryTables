@@ -30,7 +30,6 @@ export default function LoginForm() {
         body: JSON.stringify({ username, password }),
       });
       const result = await response.json();
-
       if (result.success) {
         setIsLogged(true);
         setUser(username);

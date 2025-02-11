@@ -38,17 +38,6 @@ def create_table():
     result = createtable.create_table(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
 
-"""
-@app.route('/drop', methods=['GET', 'POST'])
-def delete():
-    res = createtable.delete_table()
-    return res
-
-@app.route('/create_users', methods=['GET', 'POST'])
-def create_usr():
-    res = createtable.create_users()
-    return res
-"""
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -8,9 +8,9 @@ def loginuser(username, password):
         try:
             mydb = load_db.connect_db()
             mycursor = mydb.cursor()
-            sql = f"SELECT username, password FROM appapi$default.users WHERE username={username} AND password={password}"
+            sql = f"SELECT username, password FROM appapi$default.users WHERE username='{username}' AND password='{password}'"
             mycursor.execute(sql)
-            result = mycursor.fetch()
+            result = mycursor.fetchone()
             if result:
                 f.write(f"\n\n{datetime.now()} -- Login SUCCESS for user: {username}")
                 f.close()
@@ -18,7 +18,7 @@ def loginuser(username, password):
             else:
                 f.write(f"\n\n{datetime.now()} -- Login FAILED for user: {username}")
                 f.close()
-                return {"success": False, "message": "Invalid credentials"}
+                return {"success": result, "message": "Invalid credentials"}
         except Exception as e:
             f.write(f"\nError: {e}")
             return {"status": "error", "message": str(e)}
