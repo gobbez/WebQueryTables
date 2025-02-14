@@ -60,7 +60,7 @@ function MenuComponent({ onMenuClick }) {
                 <Accordion.Root collapsible>
                     <Accordion.Item key="dataAnalysis" value="EdaOptions">
                         <Accordion.ItemTrigger>
-                            <Button colorPalette="blue" variant="surface" className="textblue">Data Analysis</Button>
+                            <Button {...buttonProps}>Data Analysis</Button>
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
