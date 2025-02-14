@@ -14,7 +14,6 @@ import YourTables from './components/componentsApi/SelectYourTables'
 import MenuComponent from "./components/MenuComponent"
 import CreateTable from "./components/componentsApi/CreateTable"
 
-
 function App() {
   // Current component
   const [currentComponent, setCurrentComponent] = useState(null); 

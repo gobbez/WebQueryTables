@@ -115,6 +115,22 @@ body {
     }
 }
 
+.movingwarp {
+    white-space: nowrap; 
+    overflow: hidden; 
+    display: inline-block;
+    padding-right: 100%; 
+    animation: scroll-text 10s linear infinite; 
+}
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(100%); 
+    }
+}
+
 .textblue {
     color: blue;
     font-size: large;
