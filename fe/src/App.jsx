@@ -9,7 +9,8 @@ import { Box, Flex } from '@chakra-ui/react'
 import { Toaster, toaster } from "@/components/ui/toaster"
 import { AuthProvider } from './components/context/AuthContext';
 import LoginForm from './components/componentsApi/Login'
-import AllDatabases from './components/componentsApi/AllDatabases'
+// import AllTables from './components/componentsApi/AllTables'
+import YourTables from './components/componentsApi/SelectYourTables'
 import MenuComponent from "./components/MenuComponent"
 import CreateTable from "./components/componentsApi/CreateTable"
 
@@ -51,7 +52,7 @@ function App() {
 
           {/* Componente corrente */}
           {currentComponent === "CreateTable" && <CreateTable onClose={() => setCurrentComponent(null)} />}
-          {currentComponent === "Read" && <AllDatabases />}
+          {currentComponent === "Read" && <YourTables />}
           {currentComponent === "Update" && <UpdateDatabase />}
           {currentComponent === "Delete" && <DeleteDatabase />}
         </Box>

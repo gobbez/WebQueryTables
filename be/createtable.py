@@ -55,19 +55,3 @@ def create_table(data):
             return {"status": "error", "message": str(e)}
 
     f.close()
-
-
-def select():
-    with open("log.txt", "a") as f:
-        try:
-            mydb = load_db.connect_db()
-            mycursor = mydb.cursor()
-            mycursor.execute(
-                "SELECT * FROM appapi$default.users")
-            result = mycursor.fetchall()
-            mycursor.close()
-            mydb.close()
-            f.write(f"\nSuccess: {result}")
-        except Exception as e:
-            f.write(f"\nError: {e}")
-    f.close()

@@ -5,6 +5,7 @@ from pathlib import Path
 import load_db
 import login_user
 import createtable
+import selecttable
 
 # Path
 THIS_FOLDER = Path(__file__).parent.resolve()
@@ -15,7 +16,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return jsonify(createtable.select())
+    return "Welcome!"
 
 
 @app.route('/login_user', methods=['POST'])
@@ -59,6 +60,20 @@ def new_table():
     data = request.get_json()
     result = createtable.create_table(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
+
+
+@app.route('/select_all', methods=['GET', 'POST'])
+def select_all():
+    return jsonify(selecttable.select_all_tables())
+
+@app.route('/select_yours', methods=['GET', 'POST'])
+def select_yours():
+    data = request.get_json()
+    result = selecttable.select_your_tables(data)
+    return jsonify(result)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
