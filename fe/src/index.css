@@ -4,17 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark mode styles (default) */
+/* Light mode styles (default) */
 :root {
-    --background-color: #1e1e2e;
-    --text-color: #e5e5e5;
-    --accent-color: #4f46e5;
-}
-
-/* Light mode styles */
-.light {
     --font-family: 'Poppins', sans-serif;
-    --background-color: #f9f9f9;
+    --background-color: #e1deff;
     --text-color: #333;
     --accent-color: #2563eb;
 }
@@ -33,29 +26,16 @@ body {
     @apply text-base sm:text-lg md:text-xl; /* Responsive font sizes */
 }
 
-.textcursivefordark {
-    font-family: "Lucida Handwriting";
-    font-style: italic;
-    font-size: medium;
-    color:#ffffff;
-    text-align: center;
-}
-.textfordark {
-    font-size: large;
-    color:#ffffff;
-    text-align: center;
-}
-
 .textforlight {
     font-size: large;
-    color: blueviolet;
+    color: blue;
     text-align: center;
 }
 .textcursiveforlight {
     font-family: "Lucida Handwriting";
     font-style: italic;
     font-size: medium;
-    color:blueviolet;
+    color:blue;
     text-align: center;
 }
 
@@ -101,12 +81,12 @@ body {
         color: #000000
     }
 }
-.fast_changecolor_red {
-    animation: changeColorRed 2s infinite alternate;
+.fast_changecolor_blue {
+    animation: changeColorBlue 2s infinite alternate;
   }
-@keyframes changeColorRed {
+@keyframes changeColorBlue {
     50% {
-        color: red
+        color: blue
     }
     100% {
         color: #000000
@@ -135,14 +115,14 @@ body {
     }
 }
 
-.textblack {
-    color: black;
-    font-size: medium;
+.textblue {
+    color: blue;
+    font-size: large;
 }
-.textblacklightredbg {
-    color: black;
-    font-size: medium;
-    background-color: #ffeded
+.textbluelightbluebg {
+    color: blue;
+    font-size: large;
+    background-color: #c3bffe;
 }
 .textteal {
     color: teal;
@@ -162,7 +142,7 @@ body {
 
 /* Responsive text alignment */
 @media (max-width: 640px) {
-    .textright, .textfordark, .textforlight, .textcursivefordark {
+    .textright, .textforlight {
         text-align: center; /* Center-align text on phones */
     }
     .button {

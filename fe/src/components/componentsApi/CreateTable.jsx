@@ -82,10 +82,10 @@ const CreateTable = ({ onClose }) => {
 
     return (
         <VStack spacing={4} align="center">
-            <Card.Root bgColor="#ffeded" colorPalette="red" width="350px" height="500px" overflowY="auto" padding={4}>
+            <Card.Root bgColor="#c3bffe" colorPalette="blue" width="350px" height="500px" overflowY="auto" padding={4}>
                 <Flex>
                     <Flex width="100%" justify="center">
-                        <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
+                        <Text textStyle="2xl" fontWeight="bold" className="fast_changecolor_blue">CREATE NEW TABLE</Text>
                     </Flex>
                     <DialogRoot>
                     <DialogTrigger asChild>
@@ -96,11 +96,13 @@ const CreateTable = ({ onClose }) => {
                     <DialogContent bg="white" color="black">
                         <DialogHeader>
                         <DialogTitle>
-                            <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">CREATE NEW TABLE</Text>
+                            <Flex justify="center">
+                                <Text textStyle="2xl" fontWeight="bold" className="fast_changecolor_blue">CREATE NEW TABLE</Text>
+                            </Flex>
                         </DialogTitle>
                         </DialogHeader>
                         <DialogBody>
-                            <Text className="textblack">
+                            <Text className="textforlight">
                                 Here you can create a new table. <br />
                                 TABLE NAME = Write the name of your new table <br />
                                 COLUMN NAME = Write the name of your column(s) <br />
@@ -110,44 +112,44 @@ const CreateTable = ({ onClose }) => {
                                     <Table.Header>
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                <Text className="textblack">TYPE</Text>  
+                                                <Text className="textforlight">TYPE</Text>  
                                             </Table.Cell>
                                             <Table.Cell>
-                                                <Text className="textblack">DESCRIPTION</Text>  
+                                                <Text className="textforlight">DESCRIPTION</Text>  
                                             </Table.Cell>  
                                         </Table.Row>  
                                     </Table.Header>        
                                     <Table.Body>
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                <Text className="textblack">ID PRIMARY</Text>
+                                                <Text className="textforlight">ID PRIMARY</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                <Text className="textblack">Create an ID INT AUTOINCREMENT as PRIMARY KEY</Text>
+                                                <Text className="textforlight">Create an ID INT AUTOINCREMENT as PRIMARY KEY</Text>
                                             </Table.Cell>  
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                <Text className="textblack">VARCHAR</Text>
+                                                <Text className="textforlight">VARCHAR</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                <Text className="textblack">Create a VARCHAR(255)</Text>
+                                                <Text className="textforlight">Create a VARCHAR(255)</Text>
                                             </Table.Cell> 
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                <Text className="textblack">INT</Text>
+                                                <Text className="textforlight">INT</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                <Text className="textblack">Create a INT</Text>
+                                                <Text className="textforlight">Create a INT</Text>
                                             </Table.Cell> 
                                         </Table.Row> 
                                         <Table.Row bg="white">
                                             <Table.Cell>
-                                                <Text className="textblack">DATETIME</Text>
+                                                <Text className="textforlight">DATETIME</Text>
                                             </Table.Cell>
                                             <Table.Cell>
-                                                <Text className="textblack">
+                                                <Text className="textforlight">
                                                     Create a DATETIME with CURRENT_TIMESTAMP in creation and update
                                                 </Text>
                                             </Table.Cell> 
@@ -162,14 +164,13 @@ const CreateTable = ({ onClose }) => {
                 </Flex>
                 <Card.Header>
                     <Flex width="100%" justify="center">
-                        <Text className="textblack" textStyle="2xl" fontWeight="bold">Table Name</Text>
+                        <Text className="textforlight" textStyle="2xl" fontWeight="bold">Table Name</Text>
                     </Flex>
                 </Card.Header>
-                <Card.Body>
+                <Card.Body className="textforlight">
                     <Flex width="100%" justify="center">
                         <Input
                             type="text"
-                            color="black"
                             bgColor="#ffffff"
                             name="tablename"
                             placeholder="Enter table name"
@@ -180,17 +181,17 @@ const CreateTable = ({ onClose }) => {
                     </Flex>
                     <Separator marginY={3} />
                     <Flex width="100%" justify="center">
-                        <Text className="textblack" textStyle="2xl" fontWeight="bold">Columns</Text>
+                        <Text className="textforlight" textStyle="2xl" fontWeight="bold">Columns</Text>
                     </Flex>
                     <VStack spacing={2} width="100%">
                         <Table.Root>
                             <Table.Header>
                                 <Table.Row bg="white">
                                     <Table.Cell>
-                                        <Text className="textblack">Column Name</Text>    
+                                        <Text className="textforlight">Column Name</Text>    
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <Text className="textblack">Column Type</Text>   
+                                        <Text className="textforlight">Column Type</Text>   
                                     </Table.Cell>                                
                                 </Table.Row>
                             </Table.Header>
@@ -200,8 +201,7 @@ const CreateTable = ({ onClose }) => {
                                         <Table.Cell>
                                             <Input
                                                 type="text"
-                                                color="black"
-                                                placeholder="Column name"
+                                                placeholder="Column"
                                                 width="110%"
                                                 value={column.name}
                                                 onChange={(e) => handleChange(e, index, 'name')}
@@ -209,7 +209,7 @@ const CreateTable = ({ onClose }) => {
                                         </Table.Cell>
                                         <Table.Cell>
                                             <select
-                                                style={{ backgroundColor: "#ffffff", color: "black" }}
+                                                style={{ backgroundColor: "#ffffff" }}
                                                 width="35%"
                                                 value={column.type}
                                                 onChange={(e) => handleChange(e, index, 'type')}

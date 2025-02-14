@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { Input, Button, Box, Flex, Text } from "@chakra-ui/react";
 import { AuthContext } from "../context/AuthContext";
-import { ThemeContext } from "../context/ThemeContext";
 import { toaster } from "@/components/ui/toaster";
 import {
   DialogBody,
@@ -20,11 +19,14 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const buttonProps = {
+      colorScheme: "teal",
+      variant: "surface",
+      className: "textforlight",
+  };
 
   // Check login
   const { isLogged, setIsLogged, setUser } = useContext(AuthContext);
-  // Check theme
-  const { lightMode } = useContext(ThemeContext);
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -132,45 +134,47 @@ export default function LoginForm() {
   };
 
   return (
-    <Flex justify="flex-end" className={lightMode ? "textforlight" : "textfordark"}>
+    <Flex justify="flex-end" className="textforlight">
       {isLogged ? (
         <Text>User Logged: {username}</Text>
       ) : (
-        <Flex>
+        <Flex colorPalette="blue">
           <Input
+            bg="white"
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <Input
+            bg="white"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleLogin} disabled={loading}>
+          <Button {...buttonProps} onClick={handleLogin} disabled={loading}>
             <Text>{loading ? "Loading..." : "Login"}</Text>
           </Button>
 
           {/* Register button that opens dialog with form */}
           <DialogRoot size="md" motionPreset="slide-in-bottom">
             <DialogTrigger asChild>
-              <Button>
+              <Button {...buttonProps}>
                 Register
               </Button>
             </DialogTrigger>
-            <DialogContent className="textblacklightredbg">
+            <DialogContent className="textbluelightbluebg">
               <DialogHeader>
                 <Flex justify="center">
                   <DialogTitle>
-                    <Text textStyle="2xl" fontWeight="italic" className="fast_changecolor_red">REGISTER</Text>
+                    <Text textStyle="2xl" fontWeight="bold" className="fast_changecolor_blue">REGISTER</Text>
                   </DialogTitle>
                   <DialogCloseTrigger />
                 </Flex>
               </DialogHeader>
               <DialogBody>
-                <Flex justify="center">
+                <Flex colorPalette="blue" justify="center">
                   <Input
                     bg="white"
                     type="text"
@@ -188,7 +192,7 @@ export default function LoginForm() {
                 </Flex>
                 <br />
                 <Flex justify="center">
-                  <Button onClick={handleRegister} disabled={loading}>
+                  <Button {...buttonProps} onClick={handleRegister} disabled={loading}>
                     <Text>{loading ? "Loading..." : "Register"}</Text>
                   </Button>
                 </Flex>

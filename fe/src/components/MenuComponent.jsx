@@ -1,29 +1,26 @@
 import React from "react";
 import { Accordion, Text, Button, Flex } from "@chakra-ui/react";
 import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
 import { AuthContext } from "./context/AuthContext";
 
 function MenuComponent({ onMenuClick }) {
-    // Check theme
-    const { lightMode } = useContext(ThemeContext);
     // Check if user is logged
     const { isLogged } = useContext(AuthContext);
     // Define Button properties
     const buttonProps = {
         colorScheme: "teal",
-        variant: "outline",
-        className: lightMode ? "textforlight" : "textfordark",
+        variant: "surface",
+        className: "textforlight",
     };
 
     return (
-        <Flex justify="center" gap={4}>
+        <Flex justify="center" gap={4} className="textforlight">
             {/* CRUD Database Section */}
             <Flex>
                 <Accordion.Root collapsible>
                     <Accordion.Item key="crudOptions" value="crudOptions">
                         <Accordion.ItemTrigger>
-                            CRUD Database
+                            <Button colorPalette="blue" variant="surface" className="textblue">CRUD Database</Button>
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
@@ -62,7 +59,7 @@ function MenuComponent({ onMenuClick }) {
                 <Accordion.Root collapsible>
                     <Accordion.Item key="dataAnalysis" value="EdaOptions">
                         <Accordion.ItemTrigger>
-                            Data Analysis
+                            <Button colorPalette="blue" variant="surface" className="textblue">Data Analysis</Button>
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
