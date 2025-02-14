@@ -30,7 +30,7 @@ function App() {
       <Toaster />
       <AuthProvider>
         <Box
-          bgImage= {"url(/public/images/bg1.png)"} // image
+          bgImage= {"url(/images/bg1.png)"} // image
           bgSize="cover" // Cover all area
           bgPosition="center" // Center image
           bgRepeat="no-repeat" // No repetition

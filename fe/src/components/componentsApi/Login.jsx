@@ -23,7 +23,7 @@ export default function LoginForm() {
       colorScheme: "teal",
       variant: "surface",
       className: "textforlight",
-      bg: "#1flvb8m",
+      bg: "#d4e2fd"
   };
 
   // Check login

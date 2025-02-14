@@ -11,7 +11,7 @@ function MenuComponent({ onMenuClick }) {
         colorScheme: "teal",
         variant: "surface",
         className: "textforlight",
-        bg: "#1flvb8m",
+        bg: "#d4e2fd",
     };
 
     return (
@@ -21,7 +21,7 @@ function MenuComponent({ onMenuClick }) {
                 <Accordion.Root collapsible>
                     <Accordion.Item key="crudOptions" value="crudOptions">
                         <Accordion.ItemTrigger>
-                            <Button colorPalette="blue" variant="surface" className="textblue">CRUD Database</Button>
+                            <Button {...buttonProps}>CRUD Database</Button>
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
