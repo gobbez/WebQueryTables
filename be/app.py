@@ -32,6 +32,22 @@ def loginuser_route():
 
     return jsonify(result)
 
+@app.route('/register_user', methods=['POST'])
+def registeruser_route():
+    data = request.get_json()
+
+    if not data or "registerUsername" not in data or "registerPassword" not in data:
+        return jsonify({"success": False, "message": "Username and password are required"}), 400
+
+    username = data["registerUsername"]
+    password = data["registerPassword"]
+
+    result = login_user.registeruser(username, password)
+
+    return jsonify(result)
+
+
+
 @app.route('/create_table', methods=['GET', 'POST'])
 def create_table():
     data = request.get_json()

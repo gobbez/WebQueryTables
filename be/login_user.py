@@ -21,4 +21,24 @@ def loginuser(username, password):
                 return {"success": result, "message": "Invalid credentials"}
         except Exception as e:
             f.write(f"\nError: {e}")
+            f.close()
+            return {"status": "error", "message": str(e)}
+
+
+def registeruser(username, password):
+    """Create new row in user table"""
+    with open("log.txt", "a") as f:
+        try:
+            mydb = load_db.connect_db()
+            mycursor = mydb.cursor()
+            sql = f"INSERT INTO appapi$default.users (username, password) VALUES ('{username}', '{password}')"
+            mycursor.execute(sql)
+            mydb.commit()
+
+            f.write(f"\n\n{datetime.now()} -- Register SUCCESS for user: {username}")
+            f.close()
+            return {"success": True, "message": "Register successful"}
+        except Exception as e:
+            f.write(f"\n\n{datetime.now()} -- Register FAILED with Error: {e}")
+            f.close()
             return {"status": "error", "message": str(e)}
