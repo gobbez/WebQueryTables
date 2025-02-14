@@ -11,6 +11,7 @@ function MenuComponent({ onMenuClick }) {
         colorScheme: "teal",
         variant: "surface",
         className: "textforlight",
+        bg: "#1flvb8m",
     };
 
     return (
