@@ -47,7 +47,7 @@ function TablesComponent({ data }) {
 
             {/* Table */}
             <Table.Root variant="outline" colorPalette="blu" showColumnBorder="true" interactive="true" width="350px" >
-                <Table.Header bg="blu">
+                <Table.Header bg="white">
                     <Flex justify="center">
                         <Table.Row>
                             <Table.ColumnHeader>
