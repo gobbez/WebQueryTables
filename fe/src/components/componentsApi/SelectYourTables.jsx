@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import TableComponent from "../TableComponent";
+import TablesComponent from "../TablesComponent";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toaster } from "@/components/ui/toaster";
@@ -23,7 +23,7 @@ function YourTables() {
         })
         .then((response) => {
             if (!response.ok) {
-                throw new Error("Errore nel Loading dei dati");
+                throw new Error("Error loading data");
             }
             return response.json(); 
         })
@@ -58,7 +58,7 @@ function YourTables() {
     if (error) return <p>Errore: {error}</p>;
 
     return (
-        <TableComponent data={data} />
+        <TablesComponent data={data} />
     );
 }
 export default YourTables;

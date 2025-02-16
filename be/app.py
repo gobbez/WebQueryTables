@@ -72,6 +72,11 @@ def select_yours():
     result = selecttable.select_your_tables(data)
     return jsonify(result)
 
+@app.route('/select_all_from_table', methods=['GET', 'POST'])
+def select_from():
+    data = request.get_json()
+    result = selecttable.select_all_from_table(data)
+    return jsonify(result)
 
 
 

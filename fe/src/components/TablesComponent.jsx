@@ -1,11 +1,37 @@
-import { Table, Text, Flex } from "@chakra-ui/react";
+import { useState } from "react";
+import { Table, Text, Flex, Button } from "@chakra-ui/react";
+import SelectAllFromTableComponent from "./SelectTableComponent";
 
-function TableComponent({ data }) {
-    // Assicurati che data sia un array
+
+function TablesComponent({ data }) {
+    const [openTable, setOpenTable] = useState("");
+    const buttonProps = {
+        colorScheme: "teal",
+        variant: "surface",
+        className: "textforlight",
+        bg: "#d4e2fd",
+    };
+
+    // Check if it's an array
     if (!Array.isArray(data)) {
         return <Text>Error while formatting data: no array</Text>;
     }
 
+    {/* If user clicks on a table then shows the results */}
+    if (openTable) {
+        return (
+        <>
+            <Flex justify="flex-end">
+                <Button {...buttonProps} onClick={() => setOpenTable("")}>
+                    Back to Tables
+                </Button>
+            </Flex>
+            <SelectAllFromTableComponent data={openTable} />
+        </>
+        );
+    }
+
+    {/* Else show the list of tables */}
     return (
         <Flex direction="column" align="center" gap={4} p={4}>
             {/* Moving text */}
@@ -34,7 +60,9 @@ function TableComponent({ data }) {
                     <Flex justify="center">
                         {data.map((db, index) => (
                             <Table.Row key={index}>
-                                <Table.Cell>{db}</Table.Cell>
+                                <Table.Cell>
+                                    <Button {...buttonProps} onClick={() => setOpenTable(db)}>{db}</Button>
+                                </Table.Cell>
                             </Table.Row>
                         ))}
                     </Flex>
@@ -48,4 +76,4 @@ function TableComponent({ data }) {
         </Flex>
     );
 }
-export default TableComponent;
+export default TablesComponent;

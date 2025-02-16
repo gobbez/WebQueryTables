@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import TableComponent from "../TableComponent";
+import { useState, useEffect, useRef } from "react";
+import TablesComponent from "../TablesComponent";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toaster } from "@/components/ui/toaster";
@@ -20,7 +20,7 @@ function AllTables() {
     fetch("https://appapi.pythonanywhere.com/select_all")
         .then((response) => {
         if (!response.ok) {
-            throw new Error("Errore nel Loading dei dati");
+            throw new Error("Error loading data");
         }
         return response.json(); 
         })
@@ -49,7 +49,7 @@ function AllTables() {
     if (error) return <p>Errore: {error}</p>;
 
     return (
-        <TableComponent data={data} />
+        <TablesComponent data={data} />
     );
 }
 export default AllTables;
