@@ -36,8 +36,8 @@ function MenuComponent({ onMenuClick }) {
                                         </Button>
                                     </Flex>
                                 ) : (
-                                    <Button {...buttonProps} onClick={() => onMenuClick("Read")}>
-                                      Read
+                                    <Button {...buttonProps} onClick={() => onMenuClick("ShowTable")}>
+                                      Show Table
                                     </Button>
                                 )}
                             </Accordion.ItemBody>
