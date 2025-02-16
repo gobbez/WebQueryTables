@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import { Table, Text, Flex } from "@chakra-ui/react";
+import { Table, Text, Flex, Button } from "@chakra-ui/react";
 import { toaster } from "@/components/ui/toaster";
+import AddRow from "./componentsApi/AddRow";
 
 function SelectAllFromTableComponent({ data }) {
     const [tableData, setTableData] = useState([]);
@@ -8,9 +9,17 @@ function SelectAllFromTableComponent({ data }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const hasFetched = useRef(false);
-    
+    const [isCreateRow, setIsCreateRow] = useState(false);
+
+    const buttonProps = {
+        colorScheme: "teal",
+        variant: "surface",
+        className: "textforlight",
+        bg: "#d4e2fd",
+    };
 
     useEffect(() => {
+        // Prevent double execution
         if (hasFetched.current) return;
         hasFetched.current = true;
     
@@ -37,8 +46,21 @@ function SelectAllFromTableComponent({ data }) {
         .finally(() => setLoading(false));
     }, [data]);
 
+
+    {/* Create row */}
+    if (isCreateRow) {
+        return (
+            <AddRow tablename={data}/>
+        );
+    }
+
+
     return (
         <Flex direction="column" align="center" gap={4} p={4}>
+            <Button {...buttonProps} onClick={() => setIsCreateRow(true)}>
+                Add Row
+            </Button>
+
             <Flex overflow="hidden" whiteSpace="nowrap" width="100%" position="relative">
                 <Text className="textforlight movingwarp">
                     {tableData.length > 0 ? `Rows of table ${(data)}` : `No rows in table ${(data)}`}

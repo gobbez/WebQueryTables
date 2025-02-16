@@ -83,6 +83,28 @@ def select_all_from_table(data):
             return dict_result
         except Exception as e:
             f.write(f"\nError: {e}")
+    f.close()
+
+
+def get_columns(table):
+    usetable = table[0][0]
+    with open("log.txt", "a") as f:
+        try:
+            mydb = load_db.connect_db()
+            mycursor = mydb.cursor()
+            query = f"""
+                SHOW COLUMNS 
+                FROM appapi$default.{usetable}
+                """
+            mycursor.execute(query)
+            f.write(query)
+            result = mycursor.fetchall()
+            mycursor.close()
+            mydb.close()
+            # Get columns names
+            columns = [col[0] for col in result]
+            f.write(f"\nSuccess: get column names of table {usetable}!")
+            return columns
         except Exception as e:
             f.write(f"\nError: {e}")
     f.close()

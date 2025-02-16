@@ -55,10 +55,10 @@ def create_table():
     result = createtable.create_table(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
 
-@app.route('/new_table', methods=['GET', 'POST'])
-def new_table():
+@app.route('/create_row', methods=['GET', 'POST'])
+def create_row():
     data = request.get_json()
-    result = createtable.create_table(data)
+    result = createtable.create_row(data)
     return jsonify(result), 200 if result["status"] == "success" else 400
 
 
@@ -78,6 +78,12 @@ def select_from():
     result = selecttable.select_all_from_table(data)
     return jsonify(result)
 
+
+@app.route('/get_columns', methods=['GET', 'POST'])
+def get_columns():
+    table = request.get_json()
+    result = selecttable.get_columns(table)
+    return jsonify(result)
 
 
 if __name__ == '__main__':

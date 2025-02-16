@@ -51,9 +51,7 @@ function App() {
 
           {/* Componente corrente */}
           {currentComponent === "CreateTable" && <CreateTable onClose={() => setCurrentComponent(null)} />}
-          {currentComponent === "Read" && <YourTables />}
-          {currentComponent === "Update" && <UpdateDatabase />}
-          {currentComponent === "Delete" && <DeleteDatabase />}
+          {currentComponent === "ShowTable" && <YourTables />}
         </Box>
       </AuthProvider>
     </Provider>

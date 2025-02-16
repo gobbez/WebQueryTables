@@ -31,17 +31,8 @@ function MenuComponent({ onMenuClick }) {
                                         <Button {...buttonProps} onClick={() => onMenuClick("CreateTable")}>
                                           Create Table
                                         </Button>
-                                        <Button {...buttonProps} onClick={() => onMenuClick("CreateRow")}>
-                                          Create Row
-                                        </Button>
-                                        <Button {...buttonProps} onClick={() => onMenuClick("Read")}>
-                                          Read
-                                        </Button>
-                                        <Button {...buttonProps} onClick={() => onMenuClick("Update")}>
-                                          Update
-                                        </Button>
-                                        <Button {...buttonProps} onClick={() => onMenuClick("Delete")} >
-                                          Delete
+                                        <Button {...buttonProps} onClick={() => onMenuClick("ShowTable")}>
+                                          Show Table
                                         </Button>
                                     </Flex>
                                 ) : (
