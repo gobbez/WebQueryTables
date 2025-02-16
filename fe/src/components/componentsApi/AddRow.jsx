@@ -118,7 +118,7 @@ const AddRow = ({ tablename }) => {
                         <VStack spacing={2} width="100%">
                             {columns.map((column) => (
                                 <Flex key={column} direction="column" width="100%">
-                                    <Text bg="white" className="textforlight" textStyle="xl">{column}</Text>
+                                    <Text className="textforlight" textStyle="xl">{column}</Text>
                                     <Input
                                         type="text"
                                         bgColor="#ffffff"

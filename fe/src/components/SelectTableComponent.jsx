@@ -69,7 +69,7 @@ function SelectAllFromTableComponent({ data }) {
 
             <Table.Root variant="outline" colorPalette="blu" showColumnBorder="true" interactive="true" width="100%">
                 <Table.Header bg="blu">
-                    <Table.Row>
+                    <Table.Row bg="white">
                         {columns.map((col, index) => (
                             <Table.ColumnHeader key={index}>
                                 <Text className="textforlight">{col}</Text>
